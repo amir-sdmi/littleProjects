@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="message"></div>
+    <button type="button">Heads</button>
+    <button type="button">Tails</button>
+    <script>
+      let player = 0;
+      let computer = 0;
+      const coinArray = ["Heads", "Tails"];
+      const message = document.querySelector(".message");
+      const buttons = document.querySelectorAll("button");
+      console.log(buttons);
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", tossCoin);
+      }
+      function tossCoin(e) {
+        let result = coinArray[Math.round(Math.random())];
+        if (e.target.innerText === result) player++;
+        else computer++;
+        message.innerHTML = `<h1>player=${player} computer=${computer}`;
+      }
+
+      //head = 0 and tail = 1
+      let result = Math.round(Math.random());
+    </script>
+  </body>
+</html>
