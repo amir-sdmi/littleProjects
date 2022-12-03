@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+      .output {
+        width: 200px;
+        height: 100px;
+        color: white;
+        text-align: center;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="output"></div>
+    <button type="button">Message</button>
+
+    <script>
+      const button = document.querySelector("button");
+      button.addEventListener("click", showOutput);
+      const output = document.querySelector(".output");
+      output.setAttribute(
+        "style",
+        "color:red;width:200px;height:100px;text-align: center"
+      );
+      function showOutput() {
+        const date = new Date();
+        let cur = date.getHours();
+        let message;
+        if (cur > 17) {
+          message = "its evening";
+          output.style.backgroundColor = "black";
+        } else if (cur > 12) {
+          message = "its afternoon";
+          output.style.backgroundColor = "blue";
+        } else if (cur > 0) {
+          message = "its morning";
+          output.style.backgroundColor = "yellow";
+        } else {
+          message = "Something is wrong";
+          output.style.backgroundColor = "red";
+        }
+
+        output.innerHTML = "<h1>" + message + "</h1>";
+      }
+    </script>
+  </body>
+</html>
